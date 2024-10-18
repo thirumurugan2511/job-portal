@@ -1,7 +1,7 @@
 // LoginModal.tsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/slices/authSlice'; // Import your login action
+import { login } from '../redux/slices/authSlice'; 
 
 interface LoginModalProps {
     onClose: () => void;
@@ -15,9 +15,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you can validate and authenticate the user
+        // validate and authenticate the user
         if (email && password) {
-            dispatch(login({ email, password })); // Dispatch the login action with email and password
+            dispatch(login({ email, password })); // Dispatch the login action 
             onClose(); // Close the modal
         } else {
             setError('Please enter both email and password');

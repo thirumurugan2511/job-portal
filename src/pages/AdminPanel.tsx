@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addJob as addJobAction, updateJob as updateJobAction, deleteJob as deleteJobAction } from '../redux/slices/jobsSlice'; // Redux actions for adding, updating, deleting jobs
+import { addJob as addJobAction, updateJob as updateJobAction, deleteJob as deleteJobAction } from '../redux/slices/jobsSlice'; 
 import { Job } from '../services/jobService';
 
 const AdminPanel: React.FC = () => {
     const dispatch = useDispatch();
-    const jobs = useSelector((state: { jobs: { jobs: Job[] } }) => state.jobs.jobs); // Get jobs from Redux store
-    const [searchQuery, setSearchQuery] = useState(''); // State for search query
+    const jobs = useSelector((state: { jobs: { jobs: Job[] } }) => state.jobs.jobs); 
+    const [searchQuery, setSearchQuery] = useState(''); 
 
     const [newJob, setNewJob] = useState<Job>({
-        id: Date.now(), // Generate unique ID
+        id: Date.now(),
         title: '',
         company: '',
         experience: 0,
         skills: [],
         description: '',
         applied: false,
-        logoUrl: '', // Initialize the logo URL field
+        logoUrl: '', 
     });
 
-    const [isEditing, setIsEditing] = useState<number | null>(null); // Track which job is being edited
+    const [isEditing, setIsEditing] = useState<number | null>(null); 
 
-    // Handle input changes for adding new jobs or editing jobs
+    // Handle input changes for adding new jobs 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setNewJob({ ...newJob, [name]: value });
@@ -45,14 +45,14 @@ const AdminPanel: React.FC = () => {
         }
     };
 
-    // Submit the form for adding a new job
+    // Submit 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(addJobAction(newJob)); // Dispatch the new job to Redux
         setNewJob({ id: Date.now(), title: '', company: '', experience: 0, skills: [], description: '', applied: false, logoUrl: '' });
     };
 
-    // Start editing a job
+    // editing a job
     const handleEdit = (job: Job) => {
         setNewJob(job);
         setIsEditing(job.id); // Set the job being edited
@@ -153,7 +153,7 @@ const AdminPanel: React.FC = () => {
             <table className='table'>
                 <thead>
                     <tr>
-                        <th>Logo</th> {/* New column for the logo */}
+                        <th>Logo</th> 
                         <th>Title</th>
                         <th>Company</th>
                         <th>Experience</th>

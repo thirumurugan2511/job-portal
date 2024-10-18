@@ -1,4 +1,4 @@
-// authSlice.ts
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface AuthState {
@@ -16,9 +16,9 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         login(state, action: PayloadAction<{ email: string; password: string }>) {
-            // Simulate login logic, set the user
-            state.isAuthenticated = true; // Replace with actual authentication logic
-            state.user = { name: action.payload.email, email: action.payload.email }; // Set user info
+          
+            state.isAuthenticated = true;
+            state.user = { name: action.payload.email, email: action.payload.email }; 
         },
         logout(state) {
             state.isAuthenticated = false;

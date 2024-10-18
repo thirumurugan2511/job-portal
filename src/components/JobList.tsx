@@ -7,12 +7,12 @@ const JobList: React.FC = () => {
     const jobs = useSelector((state: { jobs: { jobs: Job[] } }) => state.jobs.jobs);
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Handle search input change
+    // Handle search 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
     };
 
-    // Filter jobs based on search query
+    // Filter jobs 
     const filteredJobs = jobs.filter(job => 
         job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         job.company.toLowerCase().includes(searchQuery.toLowerCase())

@@ -1,4 +1,4 @@
-// src/services/jobService.ts
+
 export interface Job {
     id: number;
     title: string;
@@ -7,11 +7,11 @@ export interface Job {
     skills: string[];
     description: string;
     applied: boolean;
-    logoUrl: string; // Add this field for the company logo
+    logoUrl: string;
 }
 
 
-// Simulate static job data
+
 const staticJobs: Job[] = [
     {
         id: 1,
@@ -35,11 +35,11 @@ const staticJobs: Job[] = [
     },
 ];
 
-// Fetch static jobs function
+
 export const fetchJobs = async (): Promise<Job[]> => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(staticJobs); // Simulate fetching from an API
-        }, 1000); // Simulate network delay
+            resolve(staticJobs); 
+        }, 1000); 
     });
 };

@@ -1,4 +1,4 @@
-// In jobsSlice.ts
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Job } from '../../services/jobService';
 

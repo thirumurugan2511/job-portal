@@ -5,7 +5,7 @@ import Select, { MultiValue } from 'react-select';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-// Define the Option Type
+// Option Type
 interface OptionType {
     value: string;
     label: string;
@@ -16,7 +16,6 @@ const skillOptions: OptionType[] = [
     { value: 'JavaScript', label: 'JavaScript' },
     { value: 'React', label: 'React' },
     { value: 'CSS', label: 'CSS' },
-    // Add at least 30 options here for skills
 ];
 
 interface ApplicationFormProps {
@@ -47,7 +46,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ onSubmit }) => {
     return (
         <form onSubmit={formik.handleSubmit}>
             <div>
-                <input
+                <input className = "mb-2"
                     type="text"
                     name="firstName"
                     value={formik.values.firstName}
@@ -58,7 +57,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ onSubmit }) => {
                 {formik.errors.firstName && <div>{formik.errors.firstName}</div>}
             </div>
             <div>
-                <input
+                <input className = "mb-2"
                     type="text"
                     name="lastName"
                     value={formik.values.lastName}
@@ -69,7 +68,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ onSubmit }) => {
                 {formik.errors.lastName && <div>{formik.errors.lastName}</div>}
             </div>
             <div>
-                <input
+                <input className = "mb-2"
                     type="email"
                     name="email"
                     value={formik.values.email}
@@ -80,7 +79,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ onSubmit }) => {
                 {formik.errors.email && <div>{formik.errors.email}</div>}
             </div>
             <div>
-                <Select
+                <Select className = "mb-2"
                     isMulti
                     name="skills"
                     options={skillOptions}
@@ -97,13 +96,13 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ onSubmit }) => {
                 )}
             </div>
             <div>
-                <ReactQuill
+                <ReactQuill className = "mb-2"
                     value={formik.values.aboutMe}
                     onChange={(value) => formik.setFieldValue('aboutMe', value)}
                 />
                 {formik.errors.aboutMe && <div>{formik.errors.aboutMe}</div>}
             </div>
-            <button type="submit">Submit Application</button>
+            <button type="submit" className='btn btn-primary'>Submit Application</button>
         </form>
     );
 };

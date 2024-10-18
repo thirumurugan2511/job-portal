@@ -1,5 +1,5 @@
 import React from 'react';
-import JobList from '../components/JobList'; // Import JobList component
+import JobList from '../components/JobList';
 import Header from '../components/Header';
 
 const JobListPage: React.FC = () => {
